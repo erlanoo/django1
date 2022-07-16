@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category</title>
+</head>
+<body>
+    <h1>Список категорий</h1>
+    {% for cat in categories %}
+        <div>{{ cat.name }}</div>
+    {% endfor %}
+</body>
+</html>
