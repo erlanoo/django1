@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Category</title>
@@ -7,7 +7,10 @@
 <body>
     <h1>Список категорий</h1>
     {% for cat in categories %}
-        <div>{{ cat.name }}</div>
+        <div><a href="{{ cat.name }}">{{ cat.name }}</a>
+        cat.name=cat.name</div>
+
+
     {% endfor %}
 </body>
 </html>

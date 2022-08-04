@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255)),
                 ('calories', models.IntegerField(default=0)),
                 ('price', models.PositiveIntegerField(default=1)),
-                ('is_avialable', models.BooleanField(default=True)),
+                ('is_avialable', models.BooleanField(default="Доступно в продаже")),
                 ('description', models.TextField(blank=True, null=True)),
             ],
         ),

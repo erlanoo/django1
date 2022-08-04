@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from book import views
-import portfolio
+from django.conf import settings
+from django.conf.urls.static import static
+from core.views import price_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.homepage,name='homepage'),
-    path('categories/', views.categories_view,name='Category_list'),
-
-]
+    path('', views.homepage,name='homepage'),
+    path('categories/', views.categories_view, name='Category_list'),
+    path('about/', views.about_view),
+    path('price/', price_view),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

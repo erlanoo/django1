@@ -12,8 +12,9 @@ class Product(models.Model):
     title = models.CharField(max_length=255)
     price = models.PositiveIntegerField(default=1)
     type = models.CharField(max_length=255)
-    avialable = models.BooleanField(default=True)
+    avialable = models.BooleanField(default="Доступно в продаже")
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.title

@@ -1,13 +1,39 @@
-body {
-  background-color: seagreen;
+
+element.style {
 }
-    h1 {
-  color: aqua;
-  text-align: center;
+.vector-body p {
+    margin: 0.5em 0;
 }
 p {
-    color: deepskyblue;
+    margin: 0.4em 0 0.5em 0;
+    margin-top: 0.4;
+    margin-right: 0;
+    margin-bottom: 0.5;
+    margin-left: 0;
 }
-a{
-    color: darkorange;
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+.mw-content-ltr {
+    direction: ltr;
+}
+vector-body {
+    font-size: 0.875em;
+    font-size: calc(1em * 0.875);
+    line-height: 1.6;
+}
+mw-body, .parsoid-body {
+    background-color: #ffffff;
+    color: #202122;
+    direction: ltr;
+    padding: 1em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
