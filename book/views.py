@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404
 from . import models
+from .models import Category
 
 
 def homepage(request):
@@ -14,17 +15,13 @@ def categories_view(request):
 
 
 def category_detail(request, id):
-    # SELECT = FROM Product WHERE category = (SELECT id FROM Category WHERE id = id)
-    category_object = models.Category.objects.get(id=id)
-    product_list = models.Product.objects.filter(category=category_object)
-    context = {"all_product": product_list}
-    return render(request, 'book/product_list.html', context)
-
+    category = Category.objects.get(id=id)
+    context = {"Category": category}
+    return render(request, "book/category_detail.html", context)
 
 def product_detail(request, id):
      prod = get_object_or_404(models.Product,id=id)
      return render(request,"book/product_detail.html",{'product':prod})
-
 
 
 def about_view(request):

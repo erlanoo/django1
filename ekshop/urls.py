@@ -25,13 +25,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homepage, name='homepage'),
     path('categories/', categories_view, name='Category_list'),
-    path('categories/<int:id>/', category_detail,name='Category_detail'),
-    path('product/<int:id>/', views.product_detail, name='product_detail'),
+    path('categories/<int:id>/', category_detail, name='Category_detail'),
+    path('product/<int:id>/', product_detail, name='product_detail'),
     path('about/', views.about_view),
     path('price/', price_view),
     path('product/', views.product_view),
     path('sigin/', sigin_in, name="register"),
     path('pricing/', PricingListViesw.as_view()),
-    path('pricing/<int:id>/',PricingDetailView.as_view())
-
+    path('pricing/<int:id>/',PricingDetailView.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
