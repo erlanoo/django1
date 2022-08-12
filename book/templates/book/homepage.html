@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOMEPAGE</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<h1>Welcome to site</h1>
+<div class="wrapper">
+    <div class="container">
+        <div class="buttons">
+            <a href="http://127.0.0.1:8000/price/" class="rout">
+                <button>Price List</button>
+            </a>
+            <a href="http://127.0.0.1:8000/product/" class="rout">
+                <button>View Products</button>
+            </a>
+            <a href="http://127.0.0.1:8000/categories/" class="rout">
+                <button>Category</button>
+            </a>
+            <a href="http://127.0.0.1:8000/about/" class="rout">
+                <button>About</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

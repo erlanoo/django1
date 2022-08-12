@@ -5,10 +5,12 @@
     <title>Category</title>
 </head>
 <body>
+<a href="http://127.0.0.1:8000/">Вернуться назад</a>
+
     <h1>Список категорий</h1>
     {% for cat in categories %}
         <div><a href="{{ cat.name }}">{{ cat.name }}</a>
-        cat.name=cat.name</div>
+        </div>
 
 
     {% endfor %}

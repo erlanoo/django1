@@ -7,12 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Product</title>
 </head>
-<a href="http://127.0.0.1:8000/">Вернуться назад</a>
+<a href="http://127.0.0.1:8000/product">Вернуться назад</a>
 <body>
-<h1>Продукты</h1>
-    {% for show in product_list %}
-     <div><a href="{{ show.title }}">{{ show.title }}</a>
-        </div>
-    {% endfor %}
+<h1>Продукт</h1>
+  <div>{{ product.title }}</div>
+    <p>{{ product.price }}</p>
+    <p>{{ product.type }}</p>
+    <p>{{ product.avialable }}</p>
+
 </body>
 </html>

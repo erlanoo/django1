@@ -18,12 +18,20 @@ from django.urls import path
 from book import views
 from django.conf import settings
 from django.conf.urls.static import static
-from core.views import price_view
+from book.views import category_detail, product_detail, categories_view
+from core.views import price_view,sigin_in, PricingDetailView, PricingListViesw
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.homepage,name='homepage'),
-    path('categories/', views.categories_view, name='Category_list'),
+    path('', views.homepage, name='homepage'),
+    path('categories/', categories_view, name='Category_list'),
+    path('categories/<int:id>/', category_detail,name='Category_detail'),
+    path('product/<int:id>/', views.product_detail, name='product_detail'),
     path('about/', views.about_view),
     path('price/', price_view),
+    path('product/', views.product_view),
+    path('sigin/', sigin_in, name="register"),
+    path('pricing/', PricingListViesw.as_view()),
+    path('pricing/<int:id>/',PricingDetailView.as_view())
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
