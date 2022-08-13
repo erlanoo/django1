@@ -1,11 +1,13 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404
+from django.views import generic
+
 from . import models
 from .models import Category
-
+from .form import RegistrationForm
 
 def homepage(request):
     queryset = models.Product.objects.all()
-    return render(request, "book/homepage.html", {"product": queryset})
+    return render(request, "homepage.html", {"product": queryset})
 
 
 def categories_view(request):
@@ -30,4 +32,35 @@ def about_view(request):
 
 def product_view(request):
     product_object = models.Product.objects.order_by('id')
-    return render(request, "book/product_list.html",{'product_list':product_object})
+    return render(request, "book/product_list.html", {'product_list': product_object})
+
+
+def sig_in(request):
+    if request.method == "POST":
+        user_form = RegistrationForm(request.POST)
+        if user_form.is_valid():
+            new_user = user_form.save(commit=False)
+            new_user.set_password(user_form.cleaned_data['password'])
+            new_user.save()
+            return render(request, 'book/regist_done.html', {'new_user': new_user})
+    else:
+        user_form = RegistrationForm()
+    return render(request, 'book/register.html', {'user_form': user_form})
+
+
+class PricingListViesw(generic.ListView):
+    template_name = "book/pricing.html"
+    queryset = models.Pricing.objects.order_by("id")
+
+    def get_queryset(self):
+        return self.queryset
+
+class PricingDetailView(generic.DetailView):
+    template_name = "book/pricing_detail.html"
+
+    def get_object(self, **kwargs):
+        show_id = self.kwargs.get("id")
+        return get_object_or_404(models.Pricing, id=show_id)
+
+def price_view(request):
+    return render(request, "book/price.html")
