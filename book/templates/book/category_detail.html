@@ -10,8 +10,9 @@
 <a href="http://127.0.0.1:8000/categories">Вернуться назад</a>
 <body>
 
-<h1>{{ Category.name }}</h1>
-  <div>{{ product.title }}</div>
-
+      <h1>{{ Category.name }}</h1>
+     {% for show in product_list %}
+     <div><a href="{% url 'product_detail' show.id %}">{{ show.title }}</a>
+       {% endfor %}
 </body>
 </html>

@@ -11,7 +11,7 @@
 <body>
 <h1>Продукты</h1>
     {% for show in product_list %}
-     <div><a href="{{ show.title }}">{{ show.title }}</a>
+     <div><a href="{% url 'product_detail' show.id %}">{{ show.title }}</a>
         </div>
     {% endfor %}
 </body>
