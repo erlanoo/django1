@@ -11,20 +11,21 @@
 <div class="wrapper">
     <div class="container">
         <div class="buttons">
-            <a href="http://127.0.0.1:8000/price/" class="rout">
+            <a href="{% url 'price' %}" class="rout">
                 <button>Price List</button>
             </a>
-            <a href="http://127.0.0.1:8000/product/" class="rout">
+            <a href="{% url 'product' %}" class="rout">
                 <button>View Products</button>
             </a>
-            <a href="http://127.0.0.1:8000/categories/" class="rout">
+            <a href="{% url 'Category_list' %}" class="rout">
                 <button>Category</button>
             </a>
             <a>
-            <a href="http://127.0.0.1:8000/sigin/" class="rout"></a>
+            <a href="{% url 'register' %}" class="rout">
                 <button>Registration</button>
             </a>
-            <a href="http://127.0.0.1:8000/about/" class="rout">
+            </a>
+            <a href="{% url 'about' %}" class="rout">
                 <button>About</button>
             </a>
         </div>

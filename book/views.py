@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.views import generic
 
@@ -62,5 +63,6 @@ class PricingDetailView(generic.DetailView):
         show_id = self.kwargs.get("id")
         return get_object_or_404(models.Pricing, id=show_id)
 
+@login_required(login_url='http://127.0.0.1:8000/sigin')
 def price_view(request):
     return render(request, "book/price.html")

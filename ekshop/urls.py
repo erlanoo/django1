@@ -28,9 +28,9 @@ urlpatterns = [
     path('categories/<int:id>/', category_detail, name='Category_detail'),
     path('product/<int:id>/', product_detail, name='product_detail'),
     path('about/', views.about_view, name='about'),
-    path('price/', price_view),
-    path('product/', views.product_view),
+    path('price/', price_view, name="price"),
+    path('product/', views.product_view, name="product"),
     path('sigin/', sig_in, name="register"),
     path('pricing/', PricingListViesw.as_view()),
-    path('pricing/<int:id>/',PricingDetailView.as_view()),
+    path('pricing/<int:id>/', PricingDetailView.as_view()),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
